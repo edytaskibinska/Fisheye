@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/lightbox.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/7222698882.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Fisheye - photographe</title>
+  </head>
+  <body>
+    <header>
+      <a href="index.html">
+        <img
+          src="assets/images/logo.png"
+          class="logo"
+          tabindex="1"
+          alt="Fisheye Home page"
+        />
+      </a>
+    </header>
+    <main id="main">
+      <div class="photograph-header">
+        <div class="photographer_page"></div>
+
+        <button tabindex="2" class="contact_button" onclick="displayModal()">
+          Contactez-moi
+        </button>
+
+        <div class="photographer_photo"></div>
+      </div>
+      <div class="filters">
+        <label for="sort" class="custom-selector"
+          >Trier par
+          <select name="filters" id="sort">
+            <option value="--">--</option>
+            <option value="Popularite">Popularité</option>
+            <option value="Date">Date</option>
+            <option value="Titre">Titre</option>
+          </select>
+        </label>
+      </div>
+      <div class="photographer_photos"></div>
+    </main>
+    <div id="contact_modal">
+      <div class="modal">
+        <header>
+          <h2>Contactez-moi</h2>
+          <img src="assets/icons/close.svg" onclick="closeModal(event)" />
+        </header>
+        <form>
+          <div>
+            <label for="prenom">Prénom</label>
+            <input id="prenom" type="text" />
+          </div>
+          <div>
+            <label for="nom">Nom</label>
+            <input id="nom" type="text" />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" type="email" />
+          </div>
+          <div>
+            <label for="message">Votre message</label>
+            <textarea id="mesage"></textarea>
+          </div>
+          <button class="contact_button" onclick="closeModal(event)">
+            Envoyer
+          </button>
+        </form>
+      </div>
+    </div>
+    <script src="scripts/factories/photographer.js"></script>
+    <script src="scripts/pages/photographer.js"></script>
+    <script src="/scripts/utils/contactForm.js"></script>
+  </body>
+</html>
