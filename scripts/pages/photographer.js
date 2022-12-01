@@ -47,6 +47,7 @@ selector.addEventListener("mousedown", (e) => {
   selector.appendChild(dropDown);
 });
 
+//ici accesibilté keypress entre
 selector.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
     console.log("yo");
@@ -59,7 +60,7 @@ selector.addEventListener("keypress", (e) => {
       const dropDownOption = document.createElement("li");
       dropDownOption.textContent = option.textContent;
       console.log(option);
-     
+     //ici ca n'entre pas
       option.addEventListener("change", (e) => {
         console.log("OK")
         e.stopPropagation();
@@ -67,6 +68,7 @@ selector.addEventListener("keypress", (e) => {
         selector.value = option.value;
         select.dispatchEvent(new Event("change"));
         selector.dispatchEvent(new Event("change"));
+        //ca se ferme ici
         dropDown.remove();
       });
       dropDown.appendChild(dropDownOption);
