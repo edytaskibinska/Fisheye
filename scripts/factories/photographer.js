@@ -67,6 +67,7 @@ function photographerFactory(data) {
 function photographerPageFactory(data) {
   const { name, portrait, id, tagline, city, tags } = data;
   const formTitle = document.querySelector(".phName")
+  const modal = document.querySelector(".modal")
   const picture = `assets/photographers/${portrait}`;
 
   function getUserCardDOM() {
@@ -83,6 +84,8 @@ function photographerPageFactory(data) {
     const tagscontainer = document.createElement("div");
     tagscontainer.setAttribute("class", "tagscontainer");
     tagscontainer.setAttribute("aria-role", "Tag");
+    modal.setAttribute("aria-label", `Contact me ${name}`);
+    modal.setAttribute("aria-labelledby", "2");
     
 
     const tagJelly = document.createElement("div");
@@ -128,6 +131,8 @@ function photographerPhotoFactory(data) {
     img.setAttribute("src", picture);
     imgDiv.setAttribute("class", "imgContainer");
     article.setAttribute("id", id);
+    img.setAttribute("aria-label", `Photo de ${name}`);
+
     imgDiv.appendChild(img);
     article.appendChild(imgDiv);
     return article;

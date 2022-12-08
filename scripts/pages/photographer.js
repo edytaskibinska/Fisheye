@@ -4,7 +4,6 @@ async function getPhotographers() {
   const response = await fetch("./data/photographers.json");
   const datas = await response.json();
   // et bien retourner le tableau photographers seulement une fois
-  console.log("datas", datas);
   return datas;
 }
 const queryString = window.location.search;

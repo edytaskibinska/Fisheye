@@ -58,28 +58,52 @@
     <div id="contact_modal">
       <div class="modal">
         <header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/closeWhite.svg" onclick="closeModal(event)" />
+          <h2 class="contactHeader">Contactez-moi</h2>
+          <img aria-label="Close modal form" src="assets/icons/closeWhite.svg" onclick="closeModal(event)" />
         </header>
         <form>
           <div class="phName"></div>
           <div>
             <label for="prenom">Prénom</label>
-            <input tabindex="3" id="prenom" type="text" />
+            <input
+              aria-labelledby="3"
+              aria-label="Prénom"
+              tabindex="3"
+              id="prenom"
+              type="text"
+            />
           </div>
           <div>
             <label for="nom">Nom</label>
-            <input tabindex="4" id="nom" type="text" />
+            <input
+              aria-labelledby="5"
+              aria-label="Nom"
+              tabindex="4"
+              id="nom"
+              type="text"
+            />
           </div>
           <div>
             <label for="email">Email</label>
-            <input tabindex="5" id="email" type="email" />
+            <input
+              aria-labelledby="7"
+              aria-label="Email"
+              tabindex="5"
+              id="email"
+              type="email"
+            />
           </div>
           <div>
             <label for="message">Votre message</label>
-            <textarea tabindex="6" id="mesage"></textarea>
+            <textarea
+              aria-labelledby="9"
+              aria-label="Votre message"
+              tabindex="6"
+              id="mesage"
+            ></textarea>
           </div>
           <button
+            aria-label="Send"
             tabindex="7"
             class="contact_button"
             onclick="closeModal(event)"
