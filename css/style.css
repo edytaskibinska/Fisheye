@@ -125,14 +125,12 @@ h1 {
 .imgGallery {
   width: 250px;
   height: 350px;
-  overflow: hidden;
   display: inline-block;
 }
 
 .imgDivGallery {
   width: 250px;
   height: 250px;
-  overflow: hidden;
   margin: 10px;
 }
 .imgDivGallery img {
@@ -147,6 +145,7 @@ h1 {
   margin: 10px;
 }
 .likesGallery {
+  color: #901c1c;
   display: inline;
   float: right;
 }
@@ -157,10 +156,43 @@ h1 {
 .photographer_photos {
   max-width: 1024px;
   margin: 0 auto;
-  border: 1px solid red;
+  padding: 10px 80px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
+}
+@media screen and (max-width: 940px) {
+  .photographer_photos {
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 730px) {
+  .photographer_photos {
+    justify-content: space-between;
+  }
+}
+@media screen and (max-width: 670px) {
+  .photographer_photos {
+    justify-content: center;
+  }
+}
+.photographer_stats {
+  background-color: #db8876;
+  position: fixed;
+  padding: 10px;
+  bottom: 0;
+  right: 20px;
+  min-width: 200px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 5px 5px 0 0;
+}
+.lik {
+  display: flex;
+  align-items: center;
+}
+.fa-heart {
+  margin: 0 5px;
 }
 .jelly {
   font-weight: 600;
@@ -226,7 +258,7 @@ h1 {
 .invisible-link {
   background-color: #d3573c;
   border-radius: 5px;
-  color:black;
+  color: black;
   padding: 4px;
   margin: 4px auto;
   position: fixed;

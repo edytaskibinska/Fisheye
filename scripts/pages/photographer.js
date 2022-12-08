@@ -4,14 +4,41 @@ async function getPhotographers() {
   const response = await fetch("./data/photographers.json");
   const datas = await response.json();
   // et bien retourner le tableau photographers seulement une fois
+  console.log("datas", datas);
   return datas;
 }
 const queryString = window.location.search;
 const comparedId = queryString.slice(1, 4);
 
 async function displayData(photographers) {
+  const photographersLikes = document.querySelector(".likes");
+  const photographersPrice = document.querySelector(".price");
+
   const photographersSection = document.querySelector(".photographer_page");
   const photographersPhoto = document.querySelector(".photographer_photo");
+
+  const { media } = await getPhotographers();
+  const addLikes = () => {
+    const arr = [];
+    media.map((like) => {
+      if (like.photographerId == comparedId) {
+        arr.push(like.likes);
+      }
+    });
+    const sum = arr.reduce((accumulator, value) => {
+      return accumulator + value;
+    }, 0);
+    photographersLikes.textContent = sum;
+  };
+  const addPrice = () => {
+    photographers.map((photographer) => {
+      if (photographer.id == comparedId) {
+        photographersPrice.textContent = `${photographer.price}Є / jour`;
+      }
+    });
+  };
+  addLikes();
+  addPrice();
   photographers.forEach((photographer) => {
     if (photographer.id == comparedId) {
       const photographerModel = photographerPageFactory(photographer);
@@ -50,31 +77,7 @@ selector.addEventListener("mousedown", (e) => {
 //ici accesibilté keypress entre
 selector.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
-    console.log("yo");
     e.preventDefault();
-    const select = selector.children[0];
-    const dropDown = document.createElement("ul");
-    elementOpt = document.getElementsByTagName("option");
-    dropDown.className = "selector-options";
-    [...select.children].forEach((option) => {
-      const dropDownOption = document.createElement("li");
-      dropDownOption.textContent = option.textContent;
-      console.log(option);
-     //ici ca n'entre pas
-      option.addEventListener("change", (e) => {
-        console.log("OK")
-        e.stopPropagation();
-        select.value = option.value;
-        selector.value = option.value;
-        select.dispatchEvent(new Event("change"));
-        selector.dispatchEvent(new Event("change"));
-        //ca se ferme ici
-        dropDown.remove();
-      });
-      dropDown.appendChild(dropDownOption);
-    });
-
-    selector.appendChild(dropDown);
   }
 });
 
@@ -93,7 +96,7 @@ async function displayGallery(photographers) {
     Lightbox.init(media);
   };
   showGallery(photographers);
-
+  //console.log('photographer', photographers)
   filters.addEventListener("change", function () {
     if (filters.value == "--") {
       photographersGallery.innerHTML = "";

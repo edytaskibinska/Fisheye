@@ -36,6 +36,7 @@ function photographerFactory(data) {
     tags.forEach(function (tagElement) {
       clone = tagJelly.cloneNode();
       clone.textContent = tagElement;
+      clone.setAttribute("aria-label", clone.textContent);
       tagscontainer.appendChild(clone);
     });
 
@@ -65,7 +66,7 @@ function photographerFactory(data) {
 
 function photographerPageFactory(data) {
   const { name, portrait, id, tagline, city, tags } = data;
-
+  const formTitle = document.querySelector(".phName")
   const picture = `assets/photographers/${portrait}`;
 
   function getUserCardDOM() {
@@ -81,7 +82,7 @@ function photographerPageFactory(data) {
 
     const tagscontainer = document.createElement("div");
     tagscontainer.setAttribute("class", "tagscontainer");
-    tagscontainer.setAttribute("aria-label", "Tag");
+    tagscontainer.setAttribute("aria-role", "Tag");
     
 
     const tagJelly = document.createElement("div");
@@ -90,6 +91,7 @@ function photographerPageFactory(data) {
     tags.forEach(function (tagElement) {
       clone = tagJelly.cloneNode();
       clone.textContent = tagElement;
+      clone.setAttribute("aria-label", clone.textContent);
       tagscontainer.appendChild(clone);
     });
     const img = document.createElement("img");
@@ -100,6 +102,7 @@ function photographerPageFactory(data) {
     locationn.setAttribute("class", "city");
     article.setAttribute("id", id);
     const h2 = document.createElement("h2");
+    formTitle.textContent = name;
     h2.textContent = name;
     descDiv.appendChild(locationn);
     descDiv.appendChild(desc);
@@ -142,6 +145,7 @@ function photographerGalleryFactory(data) {
 
     const link = document.createElement("a");
     link.setAttribute("href", picture);
+    link.setAttribute("aria-label", `${title} closeup view`);
 
     const img = document.createElement("img");
     const desc = document.createElement("p");

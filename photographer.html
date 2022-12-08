@@ -17,11 +17,10 @@
   </head>
   <body>
     <header>
-      <a href="index.html">
+      <a href="index.html" tabindex="1">
         <img
           src="assets/images/logo.png"
           class="logo"
-          tabindex="1"
           alt="Fisheye Home page"
         />
       </a>
@@ -48,31 +47,43 @@
         </label>
       </div>
       <div class="photographer_photos"></div>
+      <div class="photographer_stats">
+        <div class="lik">
+          <div class="likes"></div>
+          <i class="fa-sharp fa-solid fa-heart"></i>
+        </div>
+        <div class="price"></div>
+      </div>
     </main>
     <div id="contact_modal">
       <div class="modal">
         <header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal(event)" />
+          <img src="assets/icons/closeWhite.svg" onclick="closeModal(event)" />
         </header>
         <form>
+          <div class="phName"></div>
           <div>
             <label for="prenom">Prénom</label>
-            <input id="prenom" type="text" />
+            <input tabindex="3" id="prenom" type="text" />
           </div>
           <div>
             <label for="nom">Nom</label>
-            <input id="nom" type="text" />
+            <input tabindex="4" id="nom" type="text" />
           </div>
           <div>
             <label for="email">Email</label>
-            <input id="email" type="email" />
+            <input tabindex="5" id="email" type="email" />
           </div>
           <div>
             <label for="message">Votre message</label>
-            <textarea id="mesage"></textarea>
+            <textarea tabindex="6" id="mesage"></textarea>
           </div>
-          <button class="contact_button" onclick="closeModal(event)">
+          <button
+            tabindex="7"
+            class="contact_button"
+            onclick="closeModal(event)"
+          >
             Envoyer
           </button>
         </form>
