@@ -5,6 +5,7 @@ function photographerFactory(data) {
     id,
     tagline,
     tabindex,
+    tabindexDesc,
     accesskey,
     tags,
     city,
@@ -21,6 +22,8 @@ function photographerFactory(data) {
     locationn.textContent = city;
     const link = document.createElement("a");
     link.setAttribute("tabindex", tabindex);
+    link.setAttribute("aria-label", name);
+    descDiv.setAttribute("tabindex", tabindexDesc);
     const desc = document.createElement("p");
     desc.textContent = tagline;
     const priceCont = document.createElement("p");
@@ -82,6 +85,7 @@ function photographerPageFactory(data) {
     desc.textContent = tagline;
 
     const tagscontainer = document.createElement("div");
+    article.setAttribute("tabindex", "2");
     tagscontainer.setAttribute("class", "tagscontainer");
     tagscontainer.setAttribute("aria-role", "Tag");
     modal.setAttribute("aria-label", `Contact me ${name}`);
@@ -132,6 +136,7 @@ function photographerPhotoFactory(data) {
     imgDiv.setAttribute("class", "imgContainer");
     article.setAttribute("id", id);
     img.setAttribute("aria-label", `Photo de ${name}`);
+    img.setAttribute("alt", name);
 
     imgDiv.appendChild(img);
     article.appendChild(imgDiv);
@@ -150,7 +155,7 @@ function photographerGalleryFactory(data) {
 
     const link = document.createElement("a");
     link.setAttribute("href", picture);
-    link.setAttribute("aria-label", `${title} closeup view`);
+    link.setAttribute("aria-label", `${title}, closeup view`);
 
     const img = document.createElement("img");
     const desc = document.createElement("p");
@@ -167,6 +172,7 @@ function photographerGalleryFactory(data) {
 
     desc.setAttribute("class", "descGallery");
     likesContainer.setAttribute("class", "likesGallery");
+    likesContainer.setAttribute("aria-label", "likes");
 
     likesContainer.appendChild(likesText);
     likesContainer.appendChild(likesIcon);

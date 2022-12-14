@@ -29,7 +29,12 @@
       <div class="photograph-header">
         <div class="photographer_page"></div>
 
-        <button tabindex="2" class="contact_button" onclick="displayModal()">
+        <button
+          tabindex="3"
+          aria-label="contactez-moi"
+          class="contact_button"
+          onclick="displayModal()"
+        >
           Contactez-moi
         </button>
 
@@ -38,7 +43,7 @@
       <div class="filters">
         <label for="sort" class="custom-selector"
           >Trier par
-          <select name="filters" id="sort">
+          <select name="filters" aria-labelledby="2" id="sort">
             <option value="--">--</option>
             <option value="Popularite">Popularité</option>
             <option value="Date">Date</option>
@@ -59,7 +64,11 @@
       <div class="modal">
         <header>
           <h2 class="contactHeader">Contactez-moi</h2>
-          <img aria-label="Close modal form" src="assets/icons/closeWhite.svg" onclick="closeModal(event)" />
+          <img
+            aria-label="Close modal form"
+            src="assets/icons/closeWhite.svg"
+            onclick="closeModal(event)"
+          />
         </header>
         <form>
           <div class="phName"></div>
@@ -103,7 +112,7 @@
             ></textarea>
           </div>
           <button
-            aria-label="Send"
+            aria-label="Envoyer"
             tabindex="7"
             class="contact_button"
             onclick="closeModal(event)"
