@@ -194,6 +194,9 @@ h1 {
 .fa-heart {
   margin: 0 5px;
 }
+.allPhotographers , header .jelly {
+  cursor: pointer;
+}
 .jelly {
   font-weight: 600;
   color: #901c1c;

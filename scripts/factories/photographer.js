@@ -69,8 +69,8 @@ function photographerFactory(data) {
 
 function photographerPageFactory(data) {
   const { name, portrait, id, tagline, city, tags } = data;
-  const formTitle = document.querySelector(".phName")
-  const modal = document.querySelector(".modal")
+  const formTitle = document.querySelector(".phName");
+  const modal = document.querySelector(".modal");
   const picture = `assets/photographers/${portrait}`;
 
   function getUserCardDOM() {
@@ -90,7 +90,6 @@ function photographerPageFactory(data) {
     tagscontainer.setAttribute("aria-role", "Tag");
     modal.setAttribute("aria-label", `Contact me ${name}`);
     modal.setAttribute("aria-labelledby", "2");
-    
 
     const tagJelly = document.createElement("div");
     tagJelly.setAttribute("class", "jelly");
@@ -149,6 +148,10 @@ function photographerGalleryFactory(data) {
   const { image, likes, id, photographerId, title } = data;
   const picture = `assets/${photographerId}/${image}`;
 
+
+
+
+
   function getUserCardDOM() {
     const imgElement = document.createElement("div");
     const imgDiv = document.createElement("div");
@@ -161,8 +164,10 @@ function photographerGalleryFactory(data) {
     const desc = document.createElement("p");
     const likesContainer = document.createElement("div");
     const likesText = document.createElement("span");
-    const likesIcon = document.createElement("i");
+    const likesIcon = document.createElement("strong");
     desc.textContent = title;
+    likesText.setAttribute("class", "likesText");
+
     likesText.textContent = likes;
     img.setAttribute("src", picture);
     imgElement.setAttribute("id", id);
@@ -181,7 +186,10 @@ function photographerGalleryFactory(data) {
     imgElement.appendChild(imgDiv);
     imgElement.appendChild(desc);
     imgElement.appendChild(likesContainer);
+
+   
     return imgElement;
   }
+  
   return { image, likes, id, photographerId, title, picture, getUserCardDOM };
 }

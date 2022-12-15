@@ -95,7 +95,6 @@ async function displayGallery(photographers) {
     Lightbox.init(media);
   };
   showGallery(photographers);
-  //console.log('photographer', photographers)
   filters.addEventListener("change", function () {
     if (filters.value == "--") {
       photographersGallery.innerHTML = "";
@@ -141,6 +140,26 @@ async function displayGallery(photographers) {
       showGallery(sortedByDate);
     }
   });
+
+
+
+  const likesElement = document.querySelectorAll(".likesText");  
+  likesElement.forEach((item) => {
+    let liked = false
+    item.addEventListener("click", (event) => {
+      if(!liked) {
+        item.textContent = parseInt(item.textContent) + 1
+        liked = !liked
+      }else {
+        item.textContent = parseInt(item.textContent) - 1
+        liked = !liked
+      }
+    });
+  });
+  
+
+
+  
 }
 
 //lightbox
