@@ -150,6 +150,7 @@ h1 {
   color: #901c1c;
   display: inline;
   float: right;
+  cursor: pointer;
 }
 .city {
   color: #901c1c;
