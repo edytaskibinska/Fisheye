@@ -126,6 +126,8 @@ h1 {
   width: 250px;
   height: 350px;
   display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .imgDivGallery {
@@ -161,12 +163,12 @@ h1 {
   flex-wrap: wrap;
   justify-content: space-between;
 }
-@media screen and (max-width: 940px) {
+@media screen and (max-width: 965px) {
   .photographer_photos {
     justify-content: center;
   }
 }
-@media screen and (max-width: 730px) {
+@media screen and (max-width: 740px) {
   .photographer_photos {
     justify-content: space-between;
   }

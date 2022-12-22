@@ -8,9 +8,9 @@ async function getPhotographers() {
 }
 const queryString = window.location.search;
 const comparedId = queryString.slice(1, 4);
+const photographersLikes = document.querySelector(".likes");
 
 async function displayData(photographers) {
-  const photographersLikes = document.querySelector(".likes");
   const photographersPrice = document.querySelector(".price");
 
   const photographersSection = document.querySelector(".photographer_page");
@@ -141,25 +141,23 @@ async function displayGallery(photographers) {
     }
   });
 
-
-
-  const likesElement = document.querySelectorAll(".likesText");  
+  const likesElement = document.querySelectorAll(".likesText");
   likesElement.forEach((item) => {
-    let liked = false
+    let liked = false;
     item.addEventListener("click", (event) => {
-      if(!liked) {
-        item.textContent = parseInt(item.textContent) + 1
-        liked = !liked
-      }else {
-        item.textContent = parseInt(item.textContent) - 1
-        liked = !liked
+      if (!liked) {
+        item.textContent = parseInt(item.textContent) + 1;
+        photographersLikes.textContent =
+          parseInt(photographersLikes.textContent) + 1;
+        liked = !liked;
+      } else {
+        item.textContent = parseInt(item.textContent) - 1;
+        photographersLikes.textContent =
+          parseInt(photographersLikes.textContent) - 1;
+        liked = !liked;
       }
     });
   });
-  
-
-
-  
 }
 
 //lightbox
